@@ -3,32 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Atividade 5</title>
 </head>
 <body>
     <h1>Atividade 5 - calculadora</h1>
-    <input type="text" id="numero-calculado">
+    <input type="number" id="numero-calculado">
     <button id="calcular">
         Calcular
     </button>
+        <!-- Criação da div para mostrar o resultado -->
         <div id="mostrar"></div>
     <script>
-        const galeria = document.getElementById('mostrar')
-        const botaoCalcular = document.getElementById('calcular')
-
+        // Criando a constante calculaor e botão com os id do button e div criados anteriormente
+        const calculator = document.getElementById('mostrar');
+        const botaoCalcular = document.getElementById('calcular');
+        // Criando a função do botão, ao dar um "click", o botão vai realizar a função
         botaoCalcular.addEventListener("click", function(){
-        galeria.innerHTML = ""
-        const numero = document.getElementById('numero-calculado').value
+        //Utilizando o innerHTML para a cada vez que for realizar a função, o resultado/o que foi mostrado anteriormente seja apagado: COMANDO IMPORTANTE
+            calculator.innerHTML = "";
+            // Após a execução do botão, ele pegará do input o que foi escrito lá (mesmo se for uma letra) e passará para o próximo passo
+            const numero = document.getElementById('numero-calculado').value
+            //Aqui ele pegará aquele valor, transformará em number e será alocada para a variavel let valor recebido
+            let valorRecebido = Number(numero)
+            //Aqui já defino em outra váriavel let o valor que será multiplo
+            let valorMultiplo = 1
 
-        let valorRecebido = Number(numero)
-        let valorMultiplo = 1
-
-        for(valorRecebido * valorMultiplo; valorMultiplo <= 10; valorMultiplo++){
-         const conta = valorRecebido + '*' + valorMultiplo + '=' + valorRecebido * valorMultiplo
-         const tabuada = document.createElement('p');
-         tabuada.textContent = conta
-         galeria.appendChild(tabuada)
-         
+            //E aqui iniciamos o loop da tabela/calculadora, na qual o valor recebido, vai ser multiplicado pelo valor multiplo, o valor multiplo se ainda ser <= 10 voltará a repetir o loop e no próximo loop será acrescentado +1
+            //Caso passe do 10, o loop se fecha/finaliza.
+            for(valorRecebido * valorMultiplo; valorMultiplo <= 10; valorMultiplo++){
+                const conta = valorRecebido + '*' + valorMultiplo + '=' + valorRecebido * valorMultiplo
+                //criando uma constante para criar um elemento p para guardar as informações das contas
+                const tabuada = document.createElement('p');
+                //Aqui atribuimos a outra constante como elemento de texto a ser mostrado na tabuada
+                tabuada.textContent = conta
+                //E colocamos a constante tabuada para ser mostrado na constante calculator que recebe o id da div
+                calculator.appendChild(tabuada);
         }
     })
 
