@@ -10,16 +10,19 @@
     <script>
         let valor1 = prompt("Digite o primeiro valor: ");
         let valor2 = prompt("Digite o segundo valor: ");
+
+        valor1A = Number(valor1)
+        valor2A = Number(valor2)
         
-        if(valor1 < valor2){
-            while (valor1 <= valor2){
-                console.log("Número: " + valor1);
-                valor1++;
+        if(valor1A < valor2A){
+            while (valor1A <= valor2A){
+                console.log("Número: " + valor1A);
+                valor1A++;
             }
         } else {
-            while (valor2 <= valor1){
-                console.log("Número: " + valor2);
-                valor2++;
+            while (valor2A <= valor1A){
+                console.log("Número: " + valor2A);
+                valor2A++;
             }
         }
     </script>

@@ -7,13 +7,32 @@
 </head>
 <body>
     <h1>Atividade 5 - calculadora</h1>
+    <input type="text" id="numero-calculado">
+    <button id="calcular">
+        Calcular
+    </button>
+        <div id="mostrar"></div>
     <script>
-        let valorRecebido = prompt("Digite o Número que será multiplicado: ");
+        const galeria = document.getElementById('mostrar')
+        const botaoCalcular = document.getElementById('calcular')
+
+        botaoCalcular.addEventListener("click", function(){
+        galeria.innerHTML = ""
+        const numero = document.getElementById('numero-calculado').value
+
+        let valorRecebido = Number(numero)
         let valorMultiplo = 1
 
         for(valorRecebido * valorMultiplo; valorMultiplo <= 10; valorMultiplo++){
-            console.log(valorRecebido + '*' + valorMultiplo + '=' + valorRecebido * valorMultiplo)
+         const conta = valorRecebido + '*' + valorMultiplo + '=' + valorRecebido * valorMultiplo
+         const tabuada = document.createElement('p');
+         tabuada.textContent = conta
+         galeria.appendChild(tabuada)
+         
         }
+    })
+
     </script>
+
 </body>
 </html>
